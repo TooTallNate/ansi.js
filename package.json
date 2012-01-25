@@ -1,12 +1,15 @@
-{ "name": "yac.js"
-, "description": "Yet another Color library."
-, "keywords": [ "color", "terminal", "rgb", "256" ]
+{ "name": "ansi.js"
+, "description": "ANSI formatting tool for Node.js"
+, "keywords": [ "ansi", "formatting", "cursor", "color", "terminal", "rgb", "256", "stream" ]
 , "version": "0.0.0"
 , "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)"
-, "repository": { "type": "git", "url": "git://github.com/TooTallNate/yac.js.git" }
-, "main": "./lib/yac.js"
+, "repository": { "type": "git", "url": "git://github.com/TooTallNate/ansi.js.git" }
+, "main": "./lib/ansi.js"
 , "scripts": {
       "test": "mocha --reporter spec"
+  }
+, "dependencies": {
+      "debug": "*"
   }
 , "devDependencies": {
       "mocha": "*"

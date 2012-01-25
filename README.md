@@ -13,6 +13,7 @@ lines, the entire window, or hide and show the cursor, and lots more!
  * Works with *any* writable `Stream` instance.
  * Converts CSS color codes and RGB values into ANSI escape codes.
  * Low-level; you are in control of when escape codes are used, it's not abstracted.
+ * Optional automatic cleanup of stream by sending a reset ANSI code before closing.
 
 
 Installation
