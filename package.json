@@ -1,0 +1,16 @@
+{ "name": "yac.js"
+, "description": "Yet another Color library."
+, "keywords": [ "color", "terminal", "rgb", "256" ]
+, "version": "0.0.0"
+, "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)"
+, "repository": { "type": "git", "url": "git://github.com/TooTallNate/yac.js.git" }
+, "main": "./lib/yac.js"
+, "scripts": {
+      "test": "mocha --reporter spec"
+  }
+, "devDependencies": {
+      "mocha": "*"
+    , "onecolor": "*"
+  }
+, "engines": { "node": ">= 0.4.0 && < 0.7.0" }
+}
