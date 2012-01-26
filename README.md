@@ -5,7 +5,7 @@ ansi.js
 ![](http://f.cl.ly/items/0D3w3d1W443f2z3X361G/Screen%20Shot%202012-01-26%20at%202.18.31%20AM.png)
 
 `ansi.js` is a module for Node.js that writes provides an easy-to-use API for
-witing ANSI escape codes to `Stream` instances. ANSI escape codes are used to do
+writing ANSI escape codes to `Stream` instances. ANSI escape codes are used to do
 fancy things in a terminal window, like render text in colors, delete characters,
 lines, the entire window, or hide and show the cursor, and lots more!
 
