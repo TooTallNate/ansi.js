@@ -1,4 +1,4 @@
-{ "name": "ansi.js"
+{ "name": "ansi"
 , "description": "ANSI formatting tool for Node.js"
 , "keywords": [ "ansi", "formatting", "cursor", "color", "terminal", "rgb", "256", "stream" ]
 , "version": "0.0.1"
