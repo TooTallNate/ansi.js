@@ -9,7 +9,7 @@ lines, the entire window, or hide and show the cursor, and lots more!
 
 #### Features:
 
- * 256 color support for terminals!
+ * 256 color support for the terminal!
  * Works with *any* writable `Stream` instance.
  * Converts CSS color codes and RGB values into ANSI escape codes.
  * Low-level; you are in control of when escape codes are used, it's not abstracted.
