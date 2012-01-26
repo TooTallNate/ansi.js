@@ -21,7 +21,7 @@ directory.
  * Allows you to hide and show the cursor.
  * Converts CSS color codes and RGB values into ANSI escape codes.
  * Low-level; you are in control of when escape codes are used, it's not abstracted.
- * Optional automatic cleanup of stream by sending a reset ANSI code before closing.
+ * Optional automatic cleanup of stream by before closing (still TODO).
 
 
 Installation
