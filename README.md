@@ -16,6 +16,9 @@ directory.
 
  * 256 color support for the terminal!
  * Works with *any* writable `Stream` instance.
+ * Allows you to move the cursor anywhere on the terminal window.
+ * Allows you to delete existing contents from the terminal window.
+ * Allows you to hide and show the cursor.
  * Converts CSS color codes and RGB values into ANSI escape codes.
  * Low-level; you are in control of when escape codes are used, it's not abstracted.
  * Optional automatic cleanup of stream by sending a reset ANSI code before closing.
