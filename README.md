@@ -1,6 +1,6 @@
 ansi.js
 =========
-### ANSI formatting tool for Node.js
+### Advanced ANSI formatting tool for Node.js
 
 ![](http://f.cl.ly/items/0D3w3d1W443f2z3X361G/Screen%20Shot%202012-01-26%20at%202.18.31%20AM.png)
 
