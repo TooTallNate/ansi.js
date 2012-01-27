@@ -23,8 +23,6 @@ function draw () {
 
   var data = ctx.getImageData(0, 0, w, h).data;
 
-  cursor.eraseData(2);
-
   for (var i=0, l=data.length; i<l; i+=4) {
     var r = data[i]
       , g = data[i+1]
