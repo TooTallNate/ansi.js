@@ -11,7 +11,7 @@ var img = new Canvas.Image();
 img.src = image;
 
 function draw () {
-  var  width = process.stdout.getWindowSize()[0] / pixel.length | 0
+  var width = process.stdout.getWindowSize()[0] / pixel.length | 0
     , scaleW = img.width > width ? width / img.width : 1
     , w = Math.floor(img.width * scaleW)
     , h = Math.floor(img.height * scaleW);
