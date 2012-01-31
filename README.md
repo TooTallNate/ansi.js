@@ -41,19 +41,23 @@ Example
 var ansi = require('ansi')
   , cursor = ansi(process.stdout);
 
-// Set the font color to rgb(22, 254, 109)
-cursor.rgb(22, 254, 109);
+// You can chain your calls forever;
+cursor.red()        // Set font color to red
+      .bg.blue()    // Set background color to blue
+      .write('Hello World!') // Write 'Hello World!' to stdout
+      .reset()      // Reset before writing the \n, to avoid Terminal glitches
+      .write('\n')  // And a final \n to wrap things up
 
-console.log('this will be colored text!');
+// Rendering modes are persistent:
+cursor.green().bold()
 
-// Set the background color to bright red
-cursor.bg.rgb(255, 0, 0);
+// You can use the regular logging functions, text will be green
+console.log('This is green, bold text');
 
-console.log('this will be colored text with a red background!');
+// To reset just the foreground color:
+cursor.fg.reset()
 
-cursor.reset();
-
-console.log('this will be regular text');
+console.log('This will still be bold');
 ```
 
 
