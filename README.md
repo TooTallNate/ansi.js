@@ -39,9 +39,9 @@ Example
 
 ``` js
 var ansi = require('ansi')
-  , cursor = ansi(process.stdout);
+  , cursor = ansi(process.stdout)
 
-// You can chain your calls forever;
+// You can chain your calls forever:
 cursor.red()        // Set font color to red
       .bg.blue()    // Set background color to blue
       .write('Hello World!') // Write 'Hello World!' to stdout
@@ -52,12 +52,12 @@ cursor.red()        // Set font color to red
 cursor.green().bold()
 
 // You can use the regular logging functions, text will be green
-console.log('This is green, bold text');
+console.log('This is green, bold text')
 
 // To reset just the foreground color:
 cursor.fg.reset()
 
-console.log('This will still be bold');
+console.log('This will still be bold')
 ```
 
 
