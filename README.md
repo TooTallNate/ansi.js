@@ -45,7 +45,8 @@ var ansi = require('ansi')
 cursor.red()        // Set font color to red
       .bg.blue()    // Set background color to blue
       .write('Hello World!') // Write 'Hello World!' to stdout
-      .reset()      // Reset before writing the \n, to avoid Terminal glitches
+      .reset()      // When a bg color is set, call reset() before
+                    //   writing the trailing \n, to avoid Terminal glitches
       .write('\n')  // And a final \n to wrap things up
 
 // Rendering modes are persistent:
