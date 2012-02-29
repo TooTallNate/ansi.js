@@ -15,6 +15,7 @@ directory.
 #### Features:
 
  * 256 color support for the terminal!
+ * Make a beep sound from your terminal!
  * Works with *any* writable `Stream` instance.
  * Allows you to move the cursor anywhere on the terminal window.
  * Allows you to delete existing contents from the terminal window.
