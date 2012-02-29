@@ -5,6 +5,7 @@ var ansi = require('../')
   , tty = require('tty')
   , Canvas = require('canvas')
   , imageFile = process.argv[2] || __dirname + '/yoshi.png'
+  , maxWidth = parseInt(process.argv[3]) || process.stdout.getWindowSize()[0]
   , image = require('fs').readFileSync(imageFile)
   , pixel = '  '
   , alphaThreshold = 0
@@ -13,7 +14,7 @@ var img = new Canvas.Image();
 img.src = image;
 
 function draw () {
-  var width = process.stdout.getWindowSize()[0] / pixel.length | 0
+  var width = maxWidth / pixel.length | 0
     , scaleW = img.width > width ? width / img.width : 1
     , w = Math.floor(img.width * scaleW)
     , h = Math.floor(img.height * scaleW);
