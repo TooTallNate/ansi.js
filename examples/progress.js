@@ -62,7 +62,8 @@ var p = new Progress(process.stdout)
 
 ;(function tick () {
   p.setProgress(p.progress + (Math.random() * 5))
+  p.cursor.eraseLine(2)
+  console.log('progress: %d', p.progress)
   if (p.progress < 100)
     setTimeout(tick, 100)
 })()
-
