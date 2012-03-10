@@ -9,8 +9,8 @@ writing ANSI escape codes to `Stream` instances. ANSI escape codes are used to d
 fancy things in a terminal window, like render text in colors, delete characters,
 lines, the entire window, or hide and show the cursor, and lots more!
 
-The code for the example in the screenshot above can be found in the `examples`
-directory.
+The code for the example in the screenshot above can be found in the
+`examples/imgcat` directory.
 
 #### Features:
 
