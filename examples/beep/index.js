@@ -4,7 +4,7 @@
  * Invokes the terminal "beep" sound once per second on every exact second.
  */
 
-var cursor = require('../')(process.stdout)
+var cursor = require('../../')(process.stdout)
 
 function beep () {
   cursor.beep()

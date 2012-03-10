@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var ansi = require('../')
+var ansi = require('../../')
   , cursor = ansi(process.stdout)
   , tty = require('tty')
   , Canvas = require('canvas')

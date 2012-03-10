@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 
 var tty = require('tty')
-  , ansi = require('../')
+  , ansi = require('../../')
 
 function Progress (stream) {
   this.cursor = ansi(stream)
