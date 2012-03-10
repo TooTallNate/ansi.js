@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 /**
  * Invokes the terminal "beep" sound once per second on every exact second.
