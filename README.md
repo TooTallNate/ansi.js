@@ -43,12 +43,13 @@ var ansi = require('ansi')
   , cursor = ansi(process.stdout)
 
 // You can chain your calls forever:
-cursor.red()        // Set font color to red
-      .bg.blue()    // Set background color to blue
-      .write('Hello World!') // Write 'Hello World!' to stdout
-      .reset()      // When a bg color is set, call reset() before
-                    //   writing the trailing \n, to avoid Terminal glitches
-      .write('\n')  // And a final \n to wrap things up
+cursor
+  .red()                 // Set font color to red
+  .bg.blue()             // Set background color to blue
+  .write('Hello World!') // Write 'Hello World!' to stdout
+  .reset()               // When a bg color is set, call reset() before
+                         //  writing the trailing \n, to avoid Terminal glitches
+  .write('\n')           // And a final \n to wrap things up
 
 // Rendering modes are persistent:
 cursor.green().bold()
