@@ -1,15 +1,24 @@
+#!/usr/bin/env node
 
 var tty = require('tty')
 var cursor = require('../')(process.stdout)
 
+// listen for the queryPosition report on stdin
+process.stdin.resume()
+tty.setRawMode(true)
+
 process.stdin.once('data', function (b) {
-  var xy = /\[(\d+)\;(\d+)R$/.exec(b.toString()).slice(1,3)
-  console.error({ x: xy[0], y: xy[1] })
+  var match = /\[(\d+)\;(\d+)R$/.exec(b.toString())
+  if (match) {
+    var xy = match.slice(1, 3).reverse().map(Number)
+    console.error(xy)
+  }
+
+  // cleanup and close stdin
   tty.setRawMode(false)
   process.stdin.pause()
 })
 
-process.stdin.resume()
-tty.setRawMode(true)
 
+// send the query position request code to stdout
 cursor.queryPosition()
