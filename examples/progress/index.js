@@ -4,54 +4,45 @@ var tty = require('tty')
   , assert = require('assert')
   , ansi = require('../../')
 
-function Progress (stream) {
+function Progress (stream, width) {
   this.cursor = ansi(stream)
-  this.tty = !!stream.isTTY
-
-  if (!this.tty && stream.hasOwnProperty('fd')) {
-    this.tty = tty.isatty(stream.fd)
-  }
-  if (this.tty) {
-    this.width = (stream.getWindowSize
-      ? stream.getWindowSize()[0]
-      : tty.getWindowSize()) / 2 | 0
-  } else {
-    this.width = 40
-  }
-
-  this.newlines = 0
-
-  process.stdout.on('newline', function () {
-    this.newlines++
-  }.bind(this))
-
+  this.delta = this.cursor.newlines
+  this.width = width | 0 || 10
   this.open = '['
   this.close = ']'
   this.complete = '▬'
   this.incomplete = '⋅'
 
-  this.setProgress(0)
+  // initial render
+  this.progress = 0
 }
 
-function c (char, length) {
-  return Array.apply(null, Array(length)).map(function () {
-    return char
-  }).join('')
+Object.defineProperty(Progress.prototype, 'progress', {
+    get: get
+  , set: set
+  , configurable: true
+  , enumerable: true
+})
+
+function get () {
+  return this._progress
 }
 
-Progress.prototype.setProgress = function setProgress (v) {
-  this.progress = Math.max(0, Math.min(v, 100))
+function set (v) {
+  this._progress = Math.max(0, Math.min(v, 100))
 
-  var n = this.width * (this.progress / 100) | 0
-    , i = this.width - n
+  var w = this.width - this.complete.length - this.incomplete.length
+    , n = w * (this._progress / 100) | 0
+    , i = w - n
     , com = c(this.complete, n)
     , inc = c(this.incomplete, i)
+    , delta = this.cursor.newlines - this.delta
 
-  assert.equal(com.length + inc.length, this.width)
+  assert.equal(com.length + inc.length, w)
 
-  if (this.newlines > 0) {
-    this.cursor.up(this.newlines)
-    this.newlines = 0
+  if (delta > 0) {
+    this.cursor.up(delta)
+    this.delta = this.cursor.newlines
   }
 
   this.cursor
@@ -68,14 +59,21 @@ Progress.prototype.setProgress = function setProgress (v) {
     .write('\n')
 }
 
+function c (char, length) {
+  return Array.apply(null, Array(length)).map(function () {
+    return char
+  }).join('')
+}
+
 
 
 
 // Usage
-var p = new Progress(process.stdout)
+var width = process.stdout.getWindowSize()[0]
+  , p = new Progress(process.stdout, width)
 
 ;(function tick () {
-  p.setProgress(p.progress + (Math.random() * 5))
+  p.progress = p.progress + (Math.random() * 5)
   p.cursor.eraseLine(2)
   console.log('progress: ' + p.progress)
   if (p.progress < 100)
