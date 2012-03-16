@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-var tty = require('tty')
-  , assert = require('assert')
+var assert = require('assert')
   , ansi = require('../../')
 
 function Progress (stream, width) {
@@ -69,7 +68,7 @@ function c (char, length) {
 
 
 // Usage
-var width = process.stdout.getWindowSize()[0]
+var width = parseInt(process.argv[2], 10) || process.stdout.getWindowSize()[0] / 2
   , p = new Progress(process.stdout, width)
 
 ;(function tick () {
