@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var tty = require('tty')
+  , assert = require('assert')
   , ansi = require('../../')
 
 function Progress (stream) {
@@ -27,18 +28,21 @@ function Progress (stream) {
   this.setProgress(0)
 }
 
+function c (char, length) {
+  return Array.apply(null, Array(length)).map(function () {
+    return char
+  }).join('')
+}
+
 Progress.prototype.setProgress = function setProgress (v) {
   this.progress = Math.max(0, Math.min(v, 100))
 
   var n = this.width * (this.progress / 100) | 0
     , i = this.width - n
+    , com = c(this.complete, n)
+    , inc = c(this.incomplete, i)
 
-  if (n === this.width) {
-    --n
-  }
-  if (i === this.width) {
-    --i
-  }
+  assert.equal(com.length + inc.length, this.width)
 
   this.cursor
     .restorePosition()
@@ -46,8 +50,8 @@ Progress.prototype.setProgress = function setProgress (v) {
     .fg.grey()
     .write(this.open)
     .fg.white()
-    .write(Array(n).join(this.complete))
-    .write(Array(i).join(this.incomplete))
+    .write(com)
+    .write(inc)
     .fg.grey()
     .write(this.close)
     .fg.reset()
