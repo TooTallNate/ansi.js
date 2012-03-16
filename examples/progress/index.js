@@ -19,12 +19,17 @@ function Progress (stream) {
     this.width = 40
   }
 
+  this.newlines = 0
+
+  process.stdout.on('newline', function () {
+    this.newlines++
+  }.bind(this))
+
   this.open = '['
   this.close = ']'
   this.complete = '▬'
   this.incomplete = '⋅'
 
-  this.cursor.savePosition()
   this.setProgress(0)
 }
 
@@ -44,8 +49,13 @@ Progress.prototype.setProgress = function setProgress (v) {
 
   assert.equal(com.length + inc.length, this.width)
 
+  if (this.newlines > 0) {
+    this.cursor.up(this.newlines)
+    this.newlines = 0
+  }
+
   this.cursor
-    .restorePosition()
+    .horizontalAbsolute(0)
     .eraseLine(2)
     .fg.grey()
     .write(this.open)
@@ -56,7 +66,6 @@ Progress.prototype.setProgress = function setProgress (v) {
     .write(this.close)
     .fg.reset()
     .write('\n')
-
 }
 
 
@@ -68,7 +77,7 @@ var p = new Progress(process.stdout)
 ;(function tick () {
   p.setProgress(p.progress + (Math.random() * 5))
   p.cursor.eraseLine(2)
-  console.log('progress: %d', p.progress)
+  console.log('progress: ' + p.progress)
   if (p.progress < 100)
     setTimeout(tick, 100)
 })()
