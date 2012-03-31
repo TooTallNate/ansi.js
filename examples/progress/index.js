@@ -74,9 +74,12 @@ var width = parseInt(process.argv[2], 10) || process.stdout.getWindowSize()[0] /
   , p = new Progress(process.stdout, width)
 
 ;(function tick () {
-  p.progress = p.progress + (Math.random() * 5)
-  p.cursor.eraseLine(2)
-  console.log('progress: ' + p.progress)
+  p.progress += Math.random() * 5
+  p.cursor
+    .eraseLine(2)
+    .write('Progress: ')
+    .bold().write(p.progress.toFixed(2)).resetBold()
+    .write('%\n')
   if (p.progress < 100)
     setTimeout(tick, 100)
 })()
