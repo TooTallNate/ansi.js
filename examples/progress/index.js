@@ -9,8 +9,8 @@ function Progress (stream, width) {
   this.width = width | 0 || 10
   this.open = '['
   this.close = ']'
-  this.complete = '▬'
-  this.incomplete = '⋅'
+  this.complete = '█'
+  this.incomplete = '_'
 
   // initial render
   this.progress = 0
@@ -47,14 +47,14 @@ function set (v) {
   this.cursor
     .horizontalAbsolute(0)
     .eraseLine(2)
-    .fg.grey()
-    .write(this.open)
     .fg.white()
+    .write(this.open)
+    .fg.grey()
     .bold()
     .write(com)
     .resetBold()
     .write(inc)
-    .fg.grey()
+    .fg.white()
     .write(this.close)
     .fg.reset()
     .write('\n')
