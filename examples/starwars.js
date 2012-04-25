@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 /**
  * A little script to play the ASCII Star Wars, but with a hidden cursor,
