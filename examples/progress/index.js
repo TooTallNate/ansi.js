@@ -78,8 +78,10 @@ var width = parseInt(process.argv[2], 10) || process.stdout.getWindowSize()[0] /
   p.cursor
     .eraseLine(2)
     .write('Progress: ')
-    .bold().write(p.progress.toFixed(2)).resetBold()
-    .write('%\n')
+    .bold().write(p.progress.toFixed(2))
+    .write('%')
+    .resetBold()
+    .write('\n')
   if (p.progress < 100)
     setTimeout(tick, 100)
 })()
