@@ -1,12 +1,21 @@
 
 /**
- * A little script to play the ACSII Star Wars, but with a hidden cursor,
+ * A little script to play the ASCII Star Wars, but with a hidden cursor,
  * since over `telnet(1)` the cursor remains visible which is annoying.
  */
 
 var net = require('net')
   , cursor = require('../')(process.stdout)
 
+// enable "raw mode" so that keystrokes aren't visible
+process.stdin.resume()
+if (process.stdin.setRawMode) {
+  process.stdin.setRawMode(true)
+} else {
+  require('tty').setRawMode(true)
+}
+
+// connect to the ASCII Star Wars server
 var socket = net.connect(23, 'towel.blinkenlights.nl')
 
 socket.on('connect', function () {
@@ -14,8 +23,12 @@ socket.on('connect', function () {
   socket.pipe(process.stdout)
 })
 
-process.on('SIGINT', function () {
-  socket.destroy()
+process.stdin.on('data', function (data) {
+  if (data.toString() === '\u0003') {
+    // Ctrl+C; a.k.a SIGINT
+    socket.destroy()
+    process.stdin.pause()
+  }
 })
 
 process.on('exit', function () {
