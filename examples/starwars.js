@@ -5,6 +5,8 @@
  * since over `telnet(1)` the cursor remains visible which is annoying.
  */
 
+process.title = 'starwars'
+
 var net = require('net')
   , cursor = require('../')(process.stdout)
 

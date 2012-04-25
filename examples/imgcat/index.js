@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+process.title = 'imgcat'
+
 var ansi = require('../../')
   , cursor = ansi(process.stdout)
   , tty = require('tty')

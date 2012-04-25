@@ -5,6 +5,8 @@
  * https://github.com/mscdex/node-ncurses/blob/master/deps/ncurses/progs/clear.c
  */
 
+process.title = 'clear'
+
 function lf () { return '\n' }
 
 require('../../')(process.stdout)
