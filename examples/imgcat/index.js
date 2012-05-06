@@ -4,7 +4,6 @@ process.title = 'imgcat'
 
 var ansi = require('../../')
   , cursor = ansi(process.stdout, { enabled: true })
-  , tty = require('tty')
   , Canvas = require('canvas')
   , imageFile = process.argv[2] || __dirname + '/yoshi.png'
   , screenWidth = process.stdout.isTTY ? process.stdout.getWindowSize()[0] : Infinity
