@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/TooTallNate/ansi.js.png)](http://travis-ci.org/TooTallNate/ansi.js)
 ansi.js
 =========
 ### Advanced ANSI formatting tool for Node.js
