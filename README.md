@@ -2,7 +2,7 @@ ansi.js
 =========
 ### Advanced ANSI formatting tool for Node.js
 
-![](http://f.cl.ly/items/0D3w3d1W443f2z3X361G/Screen%20Shot%202012-01-26%20at%202.18.31%20AM.png)
+![](http://i.cloudup.com/0fNvsT.png)
 
 `ansi.js` is a module for Node.js that provides an easy-to-use API for
 writing ANSI escape codes to `Stream` instances. ANSI escape codes are used to do
