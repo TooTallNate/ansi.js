@@ -96,4 +96,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Additionally:
 
- * The `yoshi.png` file inside `examples/imgcat` is copyright to Nintendo, Inc.
+ * The `fish.png` file inside `examples/imgcat` is licensed under Creative
+   Commons Zero 1.0 Universal license. Original downloaded from
+   http://openclipart.org/detail/2707/happy-fish-by-machovka
