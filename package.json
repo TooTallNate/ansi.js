@@ -16,7 +16,6 @@
   }
 , "devDependencies": {
       "mocha": "*"
-    , "canvas": "*"
   }
 , "engines": { "node": "*" }
 }
