@@ -8,7 +8,6 @@
 , "bin": {
       "beep": "./examples/beep/index.js"
     , "clear": "./examples/clear/index.js"
-    , "imgcat": "./examples/imgcat/index.js"
     , "starwars": "./examples/starwars.js"
   }
 , "scripts": {
