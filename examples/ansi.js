@@ -50,12 +50,14 @@ else {
   if (nl) cursor.write('\n');
 }
 
-function write(format) {
+function write(format, argNo) {
   var pos = 0
     , fmt = /@\{([-rgbcmykwRGBCMYKWouivOUIV]+)\}/g
     , raw = ''
     , code, lower, colour, reset, style
     ;
+
+  if (argNo > 0) cursor.write(' ');
 
   format.split(fmt).forEach(function(chunk, i) {
     if (!(i & 1)) {
