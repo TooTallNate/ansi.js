@@ -56,6 +56,15 @@ cursor.fg.reset()
 
 console.log('This will still be bold')
 
+// to go to a location (x,y) on the console:
+cursor.goto(10,5).write('Five down, ten over');
+
+// to clear the current line:
+cursor.horizontalAbsolute(0).eraseLine().write('Starting again');
+
+// to go to a different column on the current line:
+cursor.horizontalAbsolute(5).write('column five');
+
 // Clean up after yourself!
 cursor.reset()
 ```
