@@ -1,19 +1,34 @@
-{ "name": "ansi"
-, "description": "Advanced ANSI formatting tool for Node.js"
-, "keywords": [ "ansi", "formatting", "cursor", "color", "terminal", "rgb", "256", "stream" ]
-, "version": "0.2.1"
-, "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)"
-, "repository": { "type": "git", "url": "git://github.com/TooTallNate/ansi.js.git" }
-, "main": "./lib/ansi.js"
-, "bin": {
-      "beep": "./examples/beep/index.js"
-    , "clear": "./examples/clear/index.js"
+{
+  "name": "ansi",
+  "description": "Advanced ANSI formatting tool for Node.js",
+  "keywords": [
+    "ansi",
+    "formatting",
+    "cursor",
+    "color",
+    "terminal",
+    "rgb",
+    "256",
+    "stream"
+  ],
+  "version": "0.2.1",
+  "author": "Nathan Rajlich <nathan@tootallnate.net> (http://tootallnate.net)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TooTallNate/ansi.js.git"
+  },
+  "main": "./lib/ansi.js",
+  "bin": {
+    "beep": "./examples/beep/index.js",
+    "clear": "./examples/clear/index.js"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "engines": {
+    "node": "*"
   }
-, "scripts": {
-      "test": "mocha --reporter spec"
-  }
-, "devDependencies": {
-      "mocha": "*"
-  }
-, "engines": { "node": "*" }
 }
