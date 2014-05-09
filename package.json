@@ -18,10 +18,6 @@
     "url": "git://github.com/TooTallNate/ansi.js.git"
   },
   "main": "./lib/ansi.js",
-  "bin": {
-    "beep": "./examples/beep/index.js",
-    "clear": "./examples/clear/index.js"
-  },
   "scripts": {
     "test": "mocha --reporter spec"
   },
