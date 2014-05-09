@@ -23,8 +23,5 @@
   },
   "devDependencies": {
     "mocha": "*"
-  },
-  "engines": {
-    "node": "*"
   }
 }
