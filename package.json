@@ -17,11 +17,5 @@
     "type": "git",
     "url": "git://github.com/TooTallNate/ansi.js.git"
   },
-  "main": "./lib/ansi.js",
-  "scripts": {
-    "test": "mocha --reporter spec"
-  },
-  "devDependencies": {
-    "mocha": "*"
-  }
+  "main": "./lib/ansi.js"
 }
