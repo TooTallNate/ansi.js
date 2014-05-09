@@ -8,7 +8,6 @@
 , "bin": {
       "beep": "./examples/beep/index.js"
     , "clear": "./examples/clear/index.js"
-    , "starwars": "./examples/starwars.js"
   }
 , "scripts": {
       "test": "mocha --reporter spec"
