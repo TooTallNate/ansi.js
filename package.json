@@ -1,6 +1,7 @@
 {
   "name": "ansi",
   "description": "Advanced ANSI formatting tool for Node.js",
+  "license": "MIT",
   "keywords": [
     "ansi",
     "formatting",
