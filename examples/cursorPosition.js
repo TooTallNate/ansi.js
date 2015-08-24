@@ -26,7 +26,7 @@ cursor.queryPosition()
 function raw (mode) {
   if (process.stdin.setRawMode) {
     process.stdin.setRawMode(mode)
-  } else {
-    tty.setRawMode(mode)
+  } else if (!process.stdin.isTTY) {
+    throw new Error('not allowed in non-tty')
   }
 }
