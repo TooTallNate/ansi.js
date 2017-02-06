@@ -27,6 +27,6 @@ function raw (mode) {
   if (process.stdin.setRawMode) {
     process.stdin.setRawMode(mode)
   } else {
-    tty.setRawMode(mode)
+    process.stdin.setRawMode(mode)
   }
 }
