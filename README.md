@@ -68,6 +68,9 @@ cursor.horizontalAbsolute(5).write('column five')
 
 // Clean up after yourself!
 cursor.reset()
+
+// a string-oriented API is provided too
+console.log(ansi.underline(ansi.bgGrey(ansi.red('this is red'))));
 ```
 
 
